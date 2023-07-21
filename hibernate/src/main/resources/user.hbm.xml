@@ -7,7 +7,7 @@
 		is the name of the java class
 		GeekUserDetails is the name of the table -->
 	<class name="com.mkoner.hibernate.User" table="user">
-		<id name="userId" type="long" column="user_id">
+		<id name="userId" type="int" column="user_id">
 			<generator class="assigned"/>
 		</id>
 		<property name="username">

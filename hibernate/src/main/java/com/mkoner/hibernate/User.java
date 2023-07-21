@@ -3,7 +3,7 @@ package com.mkoner.hibernate;
 import java.util.Date;
 
 public class User {
-	private Long userId;
+	private int userId;
 	private String username;
 	private Date createdDate;
 	
@@ -11,18 +11,18 @@ public class User {
 		super();
 	}
 	
-	public User(Long userId, String username, Date createdDate) {
+	public User(int userId, String username, Date createdDate) {
 		super();
 		this.userId = userId;
 		this.username = username;
 		this.createdDate = createdDate;
 	}
 
-	public Long getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Long userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
