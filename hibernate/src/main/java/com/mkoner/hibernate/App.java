@@ -9,22 +9,16 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import com.mkoner.hibernate.utils.HibernateUtils;
+
 /**
  * Hello world!
  *
  */
 public class App 
-{
-	private static SessionFactory factory; 
+{ 
     public static void main( String[] args )
     {
-    	try {
-            factory = new Configuration().configure().buildSessionFactory();
-         } catch (Throwable ex) { 
-            System.err.println("Failed to create sessionFactory object." + ex);
-            throw new ExceptionInInitializerError(ex); 
-         }
-    	
     	App app = new App();
     	
     	Integer user1 = app.addUser(1, "Mamadou");
@@ -43,7 +37,7 @@ public class App
     
     /* Method to CREATE an employee in the database */
     public Integer addUser(int id, String username){
-       Session session = factory.openSession();
+       Session session = HibernateUtils.getSessionFactory().openSession();
        Transaction tx = null;
        Integer userId = null;
        
@@ -63,7 +57,7 @@ public class App
     
     /* Method to  READ all the employees */
     public void listUsers( ){
-       Session session = factory.openSession();
+    	Session session = HibernateUtils.getSessionFactory().openSession();
        Transaction tx = null;
        
        try {
@@ -82,7 +76,7 @@ public class App
     
     /* Method to UPDATE salary for an employee */
     public void updateUser(Integer userId, String username ){
-       Session session = factory.openSession();
+    	Session session = HibernateUtils.getSessionFactory().openSession();
        Transaction tx = null;
        
        try {
@@ -101,7 +95,7 @@ public class App
     
     /* Method to DELETE an employee from the records */
     public void deleteUser(Integer userId){
-       Session session = factory.openSession();
+    	Session session = HibernateUtils.getSessionFactory().openSession();
        Transaction tx = null;
        
        try {
