@@ -16,5 +16,13 @@
 		<property name="createdDate" type="date">
 			<column name="created_date"/>
 		</property>
+		<component name = "address">
+           <property name="street">
+			 <column name="street"/>
+		   </property>
+		   		<property name="city">
+			<column name="city"/>
+		</property>
+        </component>
 	</class>
 </hibernate-mapping>

@@ -2,15 +2,27 @@ package com.mkoner.hibernate;
 
 import java.util.Date;
 
+import jakarta.persistence.Embedded;
+
 public class User {
 	private int userId;
 	private String username;
 	private Date createdDate;
+	@Embedded
+	private Address address;
 	
 	public User() {
 		super();
 	}
 	
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	public User(int userId, String username, Date createdDate) {
 		super();
 		this.userId = userId;
