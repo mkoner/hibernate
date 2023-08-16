@@ -9,13 +9,14 @@
 			Driver is required(JDBC driver class) -->
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		
-		<!-- URL to connect to MySQL -->
+		<!-- Here geeksforgeeks is the name of the database
+			that we are connecting(JDBC URL) -->
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate</property>
 		
 		<!-- Username to connect to MySQL -->
 		<property name="hibernate.connection.username">root</property>
 		
-		<!-- Password to connect to MySQL -->
+		<!-- Password to connect to MySQL, Provide your correct password -->
 		<property name="hibernate.connection.password"></property>
 		
 		<!-- Dialect required between hibernate and MySQL -->
