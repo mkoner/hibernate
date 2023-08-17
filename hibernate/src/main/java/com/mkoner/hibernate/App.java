@@ -85,7 +85,7 @@ public class App
           tx = session.beginTransaction();
           User employee = (User)session.get(User.class, userId); 
           employee.setUsername(username);
- 		 session.update(employee); 
+ 		 session.merge(employee); 
           tx.commit();
        } catch (HibernateException e) {
           if (tx!=null) tx.rollback();
@@ -103,7 +103,7 @@ public class App
        try {
           tx = session.beginTransaction();
           User employee = (User)session.get(User.class, userId); 
-          session.delete(employee); 
+          session.remove(employee); 
           tx.commit();
        } catch (HibernateException e) {
           if (tx!=null) tx.rollback();
