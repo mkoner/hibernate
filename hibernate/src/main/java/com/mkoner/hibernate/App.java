@@ -21,9 +21,9 @@ public class App
     {
     	App app = new App();
     	
-    	Integer user1 = app.addUser(1, "Mamadou", "5th cross", "Bouake");
-    	Integer user2 = app.addUser(2, "Ali", "Sable", "Yopougon");
-    	Integer user3 = app.addUser(3, "Anna", "Chu Angre", "Abidjan");
+    	Integer user1 = app.addUser("Mamadou", "5th cross", "Bouake");
+    	Integer user2 = app.addUser("Ali", "Sable", "Yopougon");
+    	Integer user3 = app.addUser("Anna", "Chu Angre", "Abidjan");
     	
     	app.listUsers();
     	
@@ -36,14 +36,14 @@ public class App
     
     
     /* Method to CREATE an employee in the database */
-    public Integer addUser(int id, String username, String street, String city){
+    public Integer addUser(String username, String street, String city){
        Session session = HibernateUtils.getSessionFactory().openSession();
        Transaction tx = null;
        Integer userId = null;
        
        try {
           tx = session.beginTransaction();
-          User user = new User(id, username, new Date());
+          User user = new User(username, new Date());
           Address address = new Address(street, city);
           user.setAddress(address);
           userId = (Integer) session.save(user); 

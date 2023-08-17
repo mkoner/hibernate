@@ -28,7 +28,8 @@
 		<property name="hbm2ddl.auto">create</property>
 		
 		<!-- We need to provide the exact mapping file
-			which we have created earlier -->
+			which we have created earlier 
 		<mapping resource="user.hbm.xml" />
+		-->
 	</session-factory>
 </hibernate-configuration>

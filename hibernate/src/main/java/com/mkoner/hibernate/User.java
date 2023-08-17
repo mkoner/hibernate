@@ -3,8 +3,15 @@ package com.mkoner.hibernate;
 import java.util.Date;
 
 import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 
+@Entity
 public class User {
+	@Id
+	@GeneratedValue
 	private int userId;
 	private String username;
 	private Date createdDate;
@@ -23,9 +30,8 @@ public class User {
 		this.address = address;
 	}
 
-	public User(int userId, String username, Date createdDate) {
+	public User(String username, Date createdDate) {
 		super();
-		this.userId = userId;
 		this.username = username;
 		this.createdDate = createdDate;
 	}
