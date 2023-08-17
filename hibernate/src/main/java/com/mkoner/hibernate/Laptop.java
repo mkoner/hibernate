@@ -1,6 +1,14 @@
 package com.mkoner.hibernate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class Laptop {
+	@Id
+	@GeneratedValue
+	private long id;
 	private String brand;
 	private String model;
 	public Laptop() {

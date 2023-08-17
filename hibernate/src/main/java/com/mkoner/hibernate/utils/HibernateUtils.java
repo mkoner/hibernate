@@ -3,6 +3,7 @@ package com.mkoner.hibernate.utils;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import com.mkoner.hibernate.Laptop;
 import com.mkoner.hibernate.User;
 
 public class HibernateUtils {
@@ -11,6 +12,7 @@ public class HibernateUtils {
 		if(factory == null) {
 			factory = new Configuration().configure()
 					.addAnnotatedClass(User.class)
+					.addAnnotatedClass(Laptop.class)
 					.buildSessionFactory();
 		}
 		return factory;

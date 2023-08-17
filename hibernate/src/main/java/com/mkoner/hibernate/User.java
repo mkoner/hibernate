@@ -2,11 +2,14 @@ package com.mkoner.hibernate;
 
 import java.util.Date;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+
 
 @Entity
 public class User {
@@ -17,6 +20,9 @@ public class User {
 	private Date createdDate;
 	@Embedded
 	private Address address;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "laptop_id")
+	private Laptop laptop;
 	
 	public User() {
 		super();
@@ -58,6 +64,14 @@ public class User {
 
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
+	}
+	
+	public Laptop getLaptop() {
+		return laptop;
+	}
+
+	public void setLaptop(Laptop laptop) {
+		this.laptop = laptop;
 	}
 
 	@Override

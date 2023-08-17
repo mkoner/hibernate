@@ -21,22 +21,22 @@ public class App
     {
     	App app = new App();
     	
-    	Integer user1 = app.addUser("Mamadou", "5th cross", "Bouake");
-    	Integer user2 = app.addUser("Ali", "Sable", "Yopougon");
-    	Integer user3 = app.addUser("Anna", "Chu Angre", "Abidjan");
+    	Integer user1 = app.addUser("Mamadou", "5th cross", "Bouake", "Dell", "Latitude");
+    	Integer user2 = app.addUser("Ali", "Sable", "Yopougon", "HP", "HP15");
+    	Integer user3 = app.addUser("Anna", "Chu Angre", "Abidjan", "Lenovo", "Thinkbook");
     	
     	app.listUsers();
     	
-    	app.updateUser(user3, "Fatima");
+    	app.updateUser(3, "Fatima");
     	
-    	app.deleteUser(user2);
+    	app.deleteUser(2);
     	
     	app.listUsers();
     }
     
     
     /* Method to CREATE an employee in the database */
-    public Integer addUser(String username, String street, String city){
+    public Integer addUser(String username, String street, String city, String lbrand, String lmodel){
        Session session = HibernateUtils.getSessionFactory().openSession();
        Transaction tx = null;
        Integer userId = null;
@@ -45,8 +45,10 @@ public class App
           tx = session.beginTransaction();
           User user = new User(username, new Date());
           Address address = new Address(street, city);
+          Laptop laptop = new Laptop(lbrand, lmodel);
           user.setAddress(address);
-          userId = (Integer) session.save(user); 
+          user.setLaptop(laptop);
+          session.save(user); 
           tx.commit();
        } catch (HibernateException e) {
           if (tx!=null) tx.rollback();
