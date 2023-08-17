@@ -78,7 +78,4 @@ public class User {
 	public String toString() {
 		return "User {userId:" + userId + ", username:" + username + ", createdDate:" + createdDate + "}";
 	}
-	
-	
-	
 }
