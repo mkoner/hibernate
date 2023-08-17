@@ -21,7 +21,7 @@ public class User {
 	@Embedded
 	private Address address;
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "laptop_id")
+	@JoinColumn(name = "laptop_idss")
 	private Laptop laptop;
 	
 	public User() {

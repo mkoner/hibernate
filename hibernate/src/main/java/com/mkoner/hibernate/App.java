@@ -27,9 +27,9 @@ public class App
     	
     	app.listUsers();
     	
-    	app.updateUser(3, "Fatima");
+    	//app.updateUser(3, "Fatima");
     	
-    	app.deleteUser(2);
+    	//app.deleteUser(2);
     	
     	app.listUsers();
     }
