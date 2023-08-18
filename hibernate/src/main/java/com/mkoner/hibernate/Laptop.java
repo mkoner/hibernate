@@ -3,6 +3,7 @@ package com.mkoner.hibernate;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Laptop {
@@ -11,6 +12,8 @@ public class Laptop {
 	private long id;
 	private String brand;
 	private String model;
+	@OneToOne
+	private User user;
 	public Laptop() {
 		super();
 	}
@@ -34,6 +37,12 @@ public class Laptop {
 	@Override
 	public String toString() {
 		return "Laptop [id=" + id + ", brand=" + brand + ", model=" + model + "]";
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 }

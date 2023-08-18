@@ -48,6 +48,7 @@ public class App
           Laptop laptop = new Laptop(lbrand, lmodel);
           user.setAddress(address);
           user.setLaptop(laptop);
+          laptop.setUser(user);
           session.save(user); 
           tx.commit();
        } catch (HibernateException e) {
