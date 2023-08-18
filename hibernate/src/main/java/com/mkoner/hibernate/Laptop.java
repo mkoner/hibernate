@@ -12,7 +12,7 @@ public class Laptop {
 	private long id;
 	private String brand;
 	private String model;
-	@OneToOne
+	@OneToOne(mappedBy = "laptop")
 	private User user;
 	public Laptop() {
 		super();
@@ -44,5 +44,4 @@ public class Laptop {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
 }
