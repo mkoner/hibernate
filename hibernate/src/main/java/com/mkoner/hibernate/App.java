@@ -68,7 +68,10 @@ public class App
           tx = session.beginTransaction();
           List<User> users = session.createQuery("FROM User").list(); 
           for(User user : users)
+          {
         	  System.out.println(user);
+        	  System.out.println(user.getLaptop());
+          }
           tx.commit();
        } catch (HibernateException e) {
           if (tx!=null) tx.rollback();

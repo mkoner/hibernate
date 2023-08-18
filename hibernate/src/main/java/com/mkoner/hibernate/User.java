@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 
 
 @Entity
@@ -21,7 +22,8 @@ public class User {
 	@Embedded
 	private Address address;
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "laptop_idss")
+	//@JoinColumn(name = "laptop_idss")
+	//@PrimaryKeyJoinColumn
 	private Laptop laptop;
 	
 	public User() {
